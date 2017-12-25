@@ -12,8 +12,8 @@ If a letter is repeated in the input file, you only output the last occurrence o
 	b = 20
 	a = 10
 Outputs:
-	a : 10
-	b : 20
+	a: 10
+	b: 20
 Note that outputs are colons and not equal signs.
 
 Some letters can be equated to 0 in the input, these letters should not be shown with their values in the output (NO ZEROS).
@@ -24,6 +24,12 @@ The output has to be in alphabetical order.
 
 Assume that all values on the right are integers.
 
+
+For Duplicates:
+- Store first one
+- if second one appears, replace first one with second one
+- if third one appears, replace second one with third one
+- General: if one already exists, just replace it with the new one until there are no more new ones
 
 HINTS:
 - Use String.split()
