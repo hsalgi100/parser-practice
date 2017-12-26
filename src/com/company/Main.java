@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        File f = new File("C:/Users/helen.DESKTOP-9PHR09U/Desktop/JProjects/p2-parser/Test3.txt");
+        File f = new File("C:/Users/helen.DESKTOP-9PHR09U/Desktop/JProjects/p2-parser/Test1.txt");
         Scanner input = null;
 	    try{
             input = new Scanner(f);
@@ -15,29 +15,22 @@ public class Main {
             System.out.println("This file does not exist.");
             System.exit(1);
         }
-	    int aValue = 0;
-	    int bValue = 0;
+        int[] values = new int[26];
 
 	    while(input.hasNextLine()){
 	        String[] parts = input.nextLine().split(" = ");
 	        String numPart = parts[parts.length - 1];
+	        char c = parts[0].charAt(0);
+	        int i = c - 'a';
 
-	        if(parts[0].equals("a")){
-                int value = Integer.parseInt(numPart);
-                aValue = value;
+	        values[i] = Integer.parseInt(numPart);
+        }
+        for(int i = 0; i < values.length; i++){
+            int c = 'a' + i;
+	        if(values[i] == 0){
+                continue;
             }
-            if(parts[0].equals("b")){
-                int value = Integer.parseInt(numPart);
-                bValue = value;
-            }
+            System.out.println((char)c + ": " + values[i]);
         }
-        if(aValue == 0){
-            System.out.print("");
-        }
-        else{System.out.println("a: " + aValue);}
-        if(bValue == 0){
-            System.out.print("");
-        }
-        else{System.out.println("b: " + bValue);}
     }
 }
